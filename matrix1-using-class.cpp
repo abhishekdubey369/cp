@@ -4,21 +4,23 @@
  */
 #include <iostream>
 
-class matrix{
-    matrix(int *m);
-    void transpose(int *m);
-    ~matrix(){
-        delete *m;
-    };
+class Matrix{
+    private:
+        int size;
+        int *M;
+    public:
+        Matrix(int size){
+            this.size =size;
+            M = new int[size];
+        }
+        void set(int i, int j, int x);
+        void get(int i,int j);
+        void display();
+        void transpose(int *m);
+        ~Matrix(){
+            delete []M;
+        };
 };
-
-matrix::matrix(int *m){
-
-}
-
-void matrix::transpose(){
-
-}
 
 int main() {
     // code
