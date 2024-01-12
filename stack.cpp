@@ -3,7 +3,7 @@
  * Created on: 2023-12-02
  */
 #include <iostream>
-
+#include <cstdio>
 
 class Node{
     public:
@@ -20,33 +20,81 @@ public:
     stack();
     void push(int data);
     void pop();
-    void peek();
+    void peek() const;
+    void sort();
     ~stack();
 };
 
-stack::stack()
-{
-    top->next = nullptr;
+stack::stack() : top(nullptr) {}
+
+void stack::sort(){
+    Node* tempstack;
+    while(top){
+        char current_element = top->data;
+        while ((tempstack->data & tempstack->next->data) > current_element){
+            push(tempstack->data);
+            tempstack = tempstack->next;
+        }
+        tempstack->data = current_element;
+        top = tempstack;
+    }
 }
 
-stack::~stack()
-{
-    delete top;
+
+stack::~stack() {
+    while (top != nullptr) {
+        Node* temp = top;
+        top = top->next;
+        delete temp;
+    }
 }
 
-void stack::push(int data){
-    Node* newNode = new Node(data);
+void stack::push(int data) {
+    Node* newNode = new (std::nothrow) Node(data);
+    if (newNode == nullptr) {
+        std::cerr << "Memory allocation failed." << std::endl;
+        return;
+    }
     newNode->next = top;
     top = newNode;
 }
 
-void stack::pop(){
-    if(isEmpty()){
 
+void stack::pop() {
+    if (top == nullptr) {
+        printf("underflow\n");
+        return;
     }
+    Node* temp = top;
+    top = top->next;
+    printf("%c", temp->data);
+    delete temp;
 }
 
+void stack::peek() const {
+    if (top == nullptr) {
+        printf("underflow\n");
+    }
+    printf("%c\n", top->data);
+}
+
+
 int main() {
-    // code
+    // Create a stack object
+    stack myStack;
+
+    // Push some elements onto the stack
+    char A[10] = "Tutedude";
+
+    int i=0;
+    while(A[i]!='\0'){
+        myStack.push(A[i]);
+        i++;
+    }
+    while(i!=0){
+        myStack.pop();
+        i--;
+    }
+
     return 0;
 }
