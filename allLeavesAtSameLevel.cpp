@@ -81,7 +81,8 @@ int main() {
 
     allLeavesAtSameLevel ans(root);
 
-    cout<<ans.areLeavesAtSameLevel()<<endl;
+    if(ans.areLeavesAtSameLevel()) cout<<"True"<<endl;
+    else cout<<"False"<<endl;
 
     return 0;
 }

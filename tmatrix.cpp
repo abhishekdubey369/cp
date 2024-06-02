@@ -1,9 +1,7 @@
 #include<iostream>
 
 using namespace std;
-
 class tmatrix{
-
     private:
         int **A;
         int row,col;
@@ -16,9 +14,7 @@ class tmatrix{
         ~tmatrix(){
             delete A;
         }
-
 };
-
 tmatrix::tmatrix(int x, int y)
 {
     row=x;
@@ -26,7 +22,6 @@ tmatrix::tmatrix(int x, int y)
     A = new int *[row];
     for(int i=0;i<row;i++){A[i] = new int [col];}
     }
-
 int tmatrix::get(int row,int col){
     return A[row][col];
 }
@@ -34,7 +29,6 @@ int tmatrix::get(int row,int col){
 void tmatrix::set(int row,int col,int data){
     A[row][col]=data;
 }
-
 void tmatrix::display(){
     for(int i=0;i<row;i++){
         for(int j=0;j<col;j++){
@@ -43,7 +37,6 @@ void tmatrix::display(){
         cout<<endl;
     }
 }
-
 void tmatrix::istmatrix(){
     for(int i=1;i<row;i++){
         for(int j=1;j<col;j++){

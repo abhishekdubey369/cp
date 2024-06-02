@@ -141,7 +141,6 @@ public:
     }
 
     void inorder() { inorderHelper(root); }
-
     Node* BSTInsert(Node* root, Node* pt) {
         if (root == nullptr)
             return pt;
@@ -153,30 +152,23 @@ public:
             root->right = BSTInsert(root->right, pt);
             root->right->parent = root;
         }
-
         return root;
     }
-
     void deleteTree() {
         deleteTree(root);
         root = nullptr;
     }
 };
-
 int main() {
     RedBlackTree tree;
-
     tree.insert(5);
     tree.insert(33);
     tree.insert(21);
     tree.insert(23);
-
     cout << "Inorder traversal of the created tree:\n";
     tree.inorder();
     cout << endl;
-
     tree.deleteTree();
     cout << "Tree deleted successfully\n";
-
     return 0;
 }

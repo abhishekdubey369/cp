@@ -164,6 +164,7 @@ int main() {
     cout << "Preorder traversal after deletion of 40:\n";
     tree.preOrder(root);
     cout << endl;
+    cout<< "miniumn no. of nodes"<<endl;
     tree.minNodes(root);
 
     return 0;

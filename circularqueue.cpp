@@ -30,7 +30,7 @@ public:
             FRONT = 0;
         }
 
-        cout << "Enqueued: " << value << endl;
+        cout << "Enqueued: " << value << " ";
     }
 
     void dequeue() {
@@ -73,12 +73,12 @@ int main() {
     cq.enqueue(2);
     cq.enqueue(3);
 
-    cout << "Front: " << cq.front() << endl;
+    cout << "Front: " << cq.front() << " ";
 
     cq.dequeue();
     cq.dequeue();
 
-    cout << "Front: " << cq.front() << endl;
+    cout << "Front: " << cq.front() << " ";
 
     cq.enqueue(4);
     cq.enqueue(5);
